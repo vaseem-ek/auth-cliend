@@ -24,11 +24,11 @@ function Login() {
                 localStorage.setItem('date', response.data.user.date)
                 localStorage.setItem('email', response.data.user.email)
                 localStorage.setItem('token', response.data.token)
+                nav('/profile')
             } else {
                 toast.error(response.data.message)
             }
 
-            nav('/profile')
         } catch (error) {
             toast.error(error.message)
         }
@@ -41,11 +41,11 @@ function Login() {
         <div className='min-h-screen flex justify-center items-center'>
             <form onSubmit={handlelogin} className='border w-1/3 flex gap-5 flex-col justify-center shadow-2xl rounded-2xl p-4'>
                 <h1 className='text-2xl text-center py-4'>Login Form</h1>
-                <input type="email" onChange={(e) => { setUsers({ ...users, email: e.target.value }) }} placeholder='enter email' required className='px-3 py-2 shadow  outline-1 bg-slate-50 rounded-full w-full' />
-                <input type="password" onChange={(e) => { setUsers({ ...users, password: e.target.value }) }} placeholder='enter password' required className='px-3 py-2 shadow  outline-1 bg-slate-50 rounded-full w-full' />
+                <input title='enter your email' type="email" onChange={(e) => { setUsers({ ...users, email: e.target.value }) }} placeholder='enter email' required className='px-3 py-2 shadow  outline-1 bg-slate-50 rounded-full w-full' />
+                <input title='enter your secret password' type="password" onChange={(e) => { setUsers({ ...users, password: e.target.value }) }} placeholder='enter password' required className='px-3 py-2 shadow  outline-1 bg-slate-50 rounded-full w-full' />
                 <div className='flex justify-between'>
                     <Link className='text-blue-300' to={'/reg'}>new here  ..?</Link>
-                    <button type='submit' className='px-3 py-2 bg-green-500 '>Login</button>
+                    <button title='click and enjoy' type='submit' className='px-3 py-2 rounded-full bg-green-500 '>Login</button>
                 </div>
 
             </form>

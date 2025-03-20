@@ -8,20 +8,21 @@ function Registration() {
         username: "", email: "", password: "", name: ""
     });
     const nav=useNavigate()
+    
 
     const handleRegister = async (e) => {
-        e.preventDefault();
+        e.preventDefault();        
 
         try {
-            if(!datas.name || !datas.password || !datas.email || !datas.username ){
-                toast.error('fill in the blank')
-            }
+          
             const response = await axios.post('http://localhost:3000/api/auth/register', {
                 username: datas.username,
                 email: datas.email,
                 password: datas.password,
                 name: datas.name
             });
+            console.log(response);
+            
 
             if (response.data.success) {
                 toast.success(response.data.message);

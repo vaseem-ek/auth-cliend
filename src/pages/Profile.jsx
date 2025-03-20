@@ -1,3 +1,4 @@
+import moment from 'moment'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -23,7 +24,7 @@ function Profile() {
     <div className='min-h-screen flex justify-center items-center'>
       <div className='border flex flex-col gap-5 text-3xl p-5 rounded w-1/2'>
       <h2>name: <span className='text-blue-600'>{name}</span></h2>
-      <h2>date: <span className='text-blue-600'>{dates}</span></h2>
+      <h2>date: <span className='text-blue-600'>{moment(dates).format()}</span></h2>
       <h2>email: <span className='text-blue-600'>{email}</span></h2>
       <button onClick={logout} className='bg-red-700 px-3 py-1 rounded-full text-sm text-white p-2'>LogOut</button>
       </div>
